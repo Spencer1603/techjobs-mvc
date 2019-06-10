@@ -38,20 +38,20 @@
 
     <!-- TODO #2 - Loop over jobs map to display all job fields -->
     <div th:fragment="job-listings">
-    <div th:unless="${jobs} and ${jobs.size()}">
-        <p>No Results</p>
-    </div>
-    <div th:if="${jobs} and ${jobs.size()}">
-        <table th:each="job : ${jobs}">
-            <tr th:each="field : ${job}">
-                <td th:text="${#strings.capitalizeWords(field.key)}">
-                </td>
-                <td th:text="${field.value}">
-                </td>
-            </tr>
-            <br />
-        </table>
-    </div>
+        <div th:if="${jobs} and ${jobs.size()}">
+            <table th:each="job : ${jobs}">
+                <tr th:each="field : ${job}">
+                    <td th:text="${#strings.capitalizeWords(field.key)}">
+                    </td>
+                    <td th:text="${field.value}">
+                    </td>
+                </tr>
+                <br />
+            </table>
+        </div>
+        <div th:unless="${jobs} and ${jobs.size()}">
+            <p>No Results</p>
+        </div>
     </div>
 
 </div>

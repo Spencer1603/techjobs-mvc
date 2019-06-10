@@ -12,6 +12,7 @@ import java.util.HashMap;
 /**
  * Created by LaunchCode
  */
+
 @Controller
 @RequestMapping("search")
 public class SearchController {
@@ -23,11 +24,11 @@ public class SearchController {
     }
 
     //TODO #1 - Create handler to process search request and display results
-    @RequestMapping(value = "results", params = {"searchType", "searchTerm"})
+    @RequestMapping(value = "results")
     public String search(Model model, @RequestParam String searchType, @RequestParam String searchTerm) {
         ArrayList<HashMap<String, String>> jobs;
 
-        if (searchType.equals("All") || searchTerm.equals("")){
+        if (searchType.equals("all") || searchTerm.equals("")){
             jobs = JobData.findByValue(searchTerm);
         }
         else {
